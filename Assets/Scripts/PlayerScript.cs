@@ -10,7 +10,6 @@ public class PlayerScript : MonoBehaviour
 
     public GameObject theBullet;
 
-
     void FixedUpdate(){
         float horzMove = Input.GetAxisRaw("Horizontal");
         GetComponent<Rigidbody2D>().velocity = new Vector2(horzMove,0) * speed * Time.deltaTime;
