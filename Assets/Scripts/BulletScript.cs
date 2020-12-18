@@ -15,25 +15,12 @@ public class BulletScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.up * speed;
-
-
-        
+        // Destroy(gameObject, 3);
     }
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag == "Wall")
-        {
-            Destroy(gameObject);
-        }
-        if (col.gameObject.tag == "Enemy")
-        {
-           
-
-            Destroy(col.gameObject,0.5f);
-
-        }
-       
+        Destroy(col.gameObject,05f);
     }
    
 

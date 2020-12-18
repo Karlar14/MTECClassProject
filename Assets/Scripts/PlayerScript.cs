@@ -6,13 +6,13 @@ public class PlayerScript : MonoBehaviour
    
 {
    
-    public float speed = 30;
+    public float speed = 300;
 
     public GameObject theBullet;
 
     void FixedUpdate(){
         float horzMove = Input.GetAxisRaw("Horizontal");
-        GetComponent<Rigidbody2D>().velocity = new Vector2(horzMove,0) * speed * Time.deltaTime;
+        GetComponent<Rigidbody2D>().velocity = new Vector2(horzMove,0) * speed;
     }
 
     // Start is called before the first frame update
