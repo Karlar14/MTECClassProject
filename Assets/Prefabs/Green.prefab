@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTransform: {fileID: 5375417811457750373}
+  EnemyBullet: {fileID: 71875718951748525, guid: dfcdbc13403c3474294a9f9ed68b0d09,
+    type: 3}
 --- !u!50 &-7961885809600125911
 Rigidbody2D:
   serializedVersion: 4

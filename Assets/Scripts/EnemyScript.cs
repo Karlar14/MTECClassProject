@@ -8,6 +8,10 @@ public class EnemyScript : MonoBehaviour
     static bool moveRight = true;
     GameObject go;
     public Transform myTransform;
+    public GameObject EnemyBullet;
+    float nextShot = 0;
+    float fireRate = 2f;
+    int value = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +21,18 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RaycastHit2D playerCheck = Physics2D.Raycast(transform.position, Vector2.down, 30f, LayerMask.GetMask("Player"));
+        if(playerCheck)
+        {
+            if(Time.time > nextShot)
+                    {
+
+                        Vector2 BulletPosition = new Vector2(myTransform.position.x, myTransform.position.y -(float)0.5f);
+                        nextShot = Time.time + fireRate;
+                        Instantiate(EnemyBullet, BulletPosition, Quaternion.identity);
+
+                    }
+        }
         if(moveRight)
         {
             myTransform.position += new Vector3(0.01f,0,0) * speed;
@@ -38,7 +54,11 @@ public class EnemyScript : MonoBehaviour
         
         if(col.gameObject.tag == "Bullet")
         {
+            GameObject scorekeeper = GameObject.Find("ScoreKeeper");
+                ScoreKeeper score = scorekeeper.GetComponent<ScoreKeeper>();
+                score.increment(value);
             Object.Destroy(gameObject);
+
         }
     }
 }

@@ -25,9 +25,9 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(theBullet,transform.position, Quaternion.identity);    //Quaternion make sure the bullets don't rotate
+            Instantiate(theBullet,transform.position + Vector3.up, Quaternion.identity);    //Quaternion make sure the bullets don't rotate
         }
     }
 }
